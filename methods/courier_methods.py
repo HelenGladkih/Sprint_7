@@ -5,7 +5,7 @@ from helpers import *
 
 
 class CourierMethods:
-
+        
     @allure.step('Создать курьера')
     def create_courier(self, params = None):
         if params is None:

@@ -43,59 +43,46 @@ class OrderData:
     }
 
 class CourierAuthData:
-    # Все поля, такой логин уже есть в системе
-    COURIER_AUTH_DATA_1 = {
-        "login": "test_authorized_user",
-        "password": "1234",
-        "firstName": "test_firstName"
-    }
     #Пустой логин
-    COURIER_AUTH_DATA_2 = {
+    COURIER_AUTH_DATA_1 = {
         "login": "",
         "password": "1234",
         "firstName": "test_firstName"
     }
     #Пустой пароль, такого логина еще нет в системе
-    COURIER_AUTH_DATA_3 = {
+    COURIER_AUTH_DATA_2 = {
         "login": "test_NOT_authorized_user",
         "password": "",
         "firstName": "test_firstName"
     }
 
 class CourierLoginData:
-    #Все поля, такой логин уже есть в системе
-    COURIER_LOGIN_DATA_1 = {
-        "login": "test_authorized_user",
-        "password": "1234",
-    }
     #Неверный пароль, такой логин уже есть в системе
-    COURIER_LOGIN_DATA_2 = {
+    COURIER_LOGIN_DATA_1 = {
         "login": "test_authorized_user",
         "password": "invalid_password"
     }
     #Неверный логин
-    COURIER_LOGIN_DATA_3 = {
+    COURIER_LOGIN_DATA_2 = {
         "login": "invalid__login",
         "password": "1234"
     }
     #Пустой логин
-    COURIER_LOGIN_DATA_4 = {
+    COURIER_LOGIN_DATA_3 = {
         "login": "",
         "password": "1234"
     }
     #Пустой пароль, такой логин уже есть в системе
-    COURIER_LOGIN_DATA_5 = {
+    COURIER_LOGIN_DATA_4 = {
         "login": "test_authorized_user",
         "password": ""
     }
     
 class OrdersParamsData:
-    #Сущ-ый id курьера в системе
-    ORDERS_PARAMS_DATA_1 = {"courierId":"572854"}
     #Неверный id курьера
-    ORDERS_PARAMS_DATA_2 = {"courierId":"00001"}
+    ORDERS_PARAMS_DATA_1 = {"courierId":"00001"}
     #Сущ-ый id курьера в системе, станция метро "Бульвар Рокоссовского"(1)
-    ORDERS_PARAMS_DATA_3 = {"courierId":"572854", "nearestStation":["1"]} 
+    ORDERS_PARAMS_DATA_2 = {"courierId":"572854", "nearestStation":["1"]} 
     
     #limit: max=30 заказов, 'page' по умолчанию =0 
     ORDERS_LIMIT_PAGE_DATA = [

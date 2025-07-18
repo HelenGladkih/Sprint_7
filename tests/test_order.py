@@ -22,15 +22,15 @@ class TestGetListOrders:
 
     @allure.title('Позитивный сценарий получения списка заказов: запрос c существующим id курьера в системе.')
     @allure.description('ОР: Тело ответа вернуло список всех активных/завершенных заказов курьера.')
-    def test_get_list_orders_id_200(self):
-        payload = OrdersParamsData.ORDERS_PARAMS_DATA_1
-        status_code, list_orders = OrderMethods().get_list_orders_sort(payload)
+    def test_get_list_orders_id_200(self, authorization_courier):
+        response = authorization_courier
+        status_code, list_orders = OrderMethods().get_list_orders_sort(response[1])
         assert status_code == 200 and list_orders != []
 
     @allure.title('Позитивный сценарий получения списка заказов: все активные/завершенные заказы курьера на указаной станции.')
     @allure.description('ОР: Тело ответа вернуло список всех активных/завершенных заказов курьера.')
     def test_get_list_orders_id_station_200(self):
-        payload = OrdersParamsData.ORDERS_PARAMS_DATA_3
+        payload = OrdersParamsData.ORDERS_PARAMS_DATA_2
         status_code, list_orders = OrderMethods().get_list_orders_sort(payload)
         assert status_code == 200 and list_orders != []      
 
@@ -51,8 +51,8 @@ class TestGetListOrders:
     @allure.title('Негативный сценарий получения списка заказов: запрос c несуществующим id курьера в системе.')
     @allure.description('ОР: Тело ответа содержит сообщение об ошибке с указанием несуществующего id курьера')
     def test_get_list_orders_id_invalid_404(self):
-        payload = OrdersParamsData.ORDERS_PARAMS_DATA_2
+        payload = OrdersParamsData.ORDERS_PARAMS_DATA_1
         status_code, response_data = OrderMethods().get_list_orders_sort(payload)
-        id = OrdersParamsData.ORDERS_PARAMS_DATA_2.get('courierId')
+        id = OrdersParamsData.ORDERS_PARAMS_DATA_1.get('courierId')
         assert status_code == 404 and response_data['message'] == f'Курьер с идентификатором {id} не найден'
  
